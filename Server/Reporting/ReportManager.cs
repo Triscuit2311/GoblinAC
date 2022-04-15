@@ -22,10 +22,40 @@ namespace Goblin.Server.Reporting
                 _reports.Add(id, new PlayerReport(
                     player.Name,
                     player.Identifiers,
-                    new Dictionary<string, string>()));
+                    new Dictionary<string, List<string>>()));
             }
-            _reports[id].ReportStrings[reportType] = $"[{DateTime.Now}] {report}";
+
+            if (!_reports[id].ReportStrings.ContainsKey(reportType))
+            {
+                _reports[id].ReportStrings.Add(reportType, new List<string>());
+            }
+            
+            _reports[id].ReportStrings[reportType].Add( $"[{DateTime.Now}] {report}");
         }
+
+        public void PrintReports()
+        {
+            Debug.WriteLine($"\nPrinting {_reports.Count} reports:\n");
+            foreach (var report in _reports)
+            {
+                Debug.WriteLine($"{report.Value.PlayerName}:");
+                foreach (var id in report.Value.Ids)
+                {
+                    Debug.WriteLine($"\t\t{id}");
+                }
+
+                foreach (var kvp in report.Value.ReportStrings)
+                {
+                    Debug.WriteLine($"\t{kvp.Key}:");
+                    foreach (var s in kvp.Value)
+                    {
+                        Debug.WriteLine($"\t\t{s}");
+                    }
+                }
+                
+            }
+        }
+        
         
     }
 }
