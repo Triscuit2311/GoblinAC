@@ -1,17 +1,20 @@
 ﻿using System;
 using CitizenFX.Core;
 using static CitizenFX.Core.Native.API;
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable StringLiteralTypo
 
 namespace Goblin.Client.Handshake
 {
     public class Handshake : BaseScript
     {
-        private bool debugusehb = true;
+        private bool _debugUseHeartBeat = true;
 
         [Command("togglehb")]
         public void ToggleHeartbeat()
         {
-            debugusehb = !debugusehb;
+            _debugUseHeartBeat = !_debugUseHeartBeat;
         }
         
         [Command("sendbadhb")]
@@ -32,7 +35,7 @@ namespace Goblin.Client.Handshake
                 Wait(100);
             }
 
-            if (!debugusehb) return;
+            if (!_debugUseHeartBeat) return;
             
             TriggerServerEvent("HeartbeatCB", 
                 (seed ^ (LocalPlayer.Character.NetworkId * 1000000)).ToString());
