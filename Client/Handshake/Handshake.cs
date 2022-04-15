@@ -25,20 +25,14 @@ namespace Goblin.Client.Handshake
         
         public Handshake()
         {
-            EventHandlers["RequestClientHeartbeat"] += new Action<int>(DispatchHeartbeat);
+            EventHandlers["RequestClientHeartbeat"] += new Action<string>(DispatchHeartbeat);
             
         }
-        private void DispatchHeartbeat(int seed)
+        
+        private void DispatchHeartbeat(string hash)
         {
-            while (LocalPlayer == null || LocalPlayer.Character == null)
-            {
-                Wait(100);
-            }
-
             if (!_debugUseHeartBeat) return;
-            
-            TriggerServerEvent("HeartbeatCB", 
-                (seed ^ (LocalPlayer.Character.NetworkId * 1000000)).ToString());
+            TriggerServerEvent("HeartbeatCB", hash);
         }
 
     }

@@ -134,6 +134,7 @@ namespace Goblin.Server.Handshake
         [Tick]
         public async Task<Task<int>> HeartbeatDispatcher()
         {
+
             if (!_initialized)
             {
                 await Delay(5000);
@@ -141,15 +142,13 @@ namespace Goblin.Server.Handshake
                 return Task.FromResult(0);
             }
 
-            var seed = _numberGen.Next(1000000, 2000000);
+            var hash = _numberGen.Next(1000000, 2000000);
 
             foreach (var player in Players)
             {
                 if (player == null || player.Character == null) continue;
 
-                var hash = seed ^ (player.Character.NetworkId * 1000000);
-
-                _outstandingHeartbeats.Add(hash + player.Name,
+                _outstandingHeartbeats.Add(hash + ":" + player.Name,
                     new HeartbeatData(
                         player.Identifiers,
                         player.Name,
@@ -157,7 +156,7 @@ namespace Goblin.Server.Handshake
                         hash));
             }
 
-            TriggerClientEvent("RequestClientHeartbeat", seed);
+            TriggerClientEvent("RequestClientHeartbeat", hash);
 
             await Delay(HeartbeatDispatchInterval);
             return Task.FromResult(0);
@@ -165,7 +164,7 @@ namespace Goblin.Server.Handshake
 
         private void HeartbeatCb([FromSource] Player source, string hash)
         {
-            if (!_outstandingHeartbeats.Remove(hash + source.Name))
+            if (!_outstandingHeartbeats.Remove(hash + ":" + source.Name))
             {
                 Debug.WriteLine("Bad heartbeat from [" + source.Name + "] : [" + hash + "]");
                 if (!_reports.ContainsKey(source.Identifiers["license"]))
@@ -180,6 +179,8 @@ namespace Goblin.Server.Handshake
             }
 
             Debug.WriteLine("Heartbeat from [" + source.Name + "] : [" + hash + "]");
+            
+            
         }
     }
 }
