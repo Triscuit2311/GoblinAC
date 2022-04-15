@@ -13,6 +13,12 @@ namespace Goblin.Client
             Debug.WriteLine("Hi from Goblin.Client!");
         }
 
+        [Command("debugprintreports")]
+        public void PrintReports()
+        {
+            TriggerServerEvent("PrintReports");
+        }
+        
         [Tick]
         public Task OnTick()
         {
