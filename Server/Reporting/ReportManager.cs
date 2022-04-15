@@ -10,13 +10,18 @@ namespace Goblin.Server.Reporting
 
         public ReportManager()
         {
+            
             _reports = new Dictionary<string, PlayerReport>();
-            EventHandlers["AddOrModifyReportString"] += new Action<Player, string, string>(AddOrModifyReportString);
-        }
+            EventHandlers["AddOrModifyReportString"] += new Action<string, string, string>(AddOrModifyReportString);
 
-        private void AddOrModifyReportString(Player player, string reportType, string report )
+            EventHandlers["PrintReports"] += new Action(PrintReports);
+        }
+        
+        
+        private void AddOrModifyReportString(string id, string reportType, string report )
         {
-            var id = player.Identifiers["fivem"];
+            var player = PlayerUtils.GetPlayerByFiveMid(id, Players);
+            
             if (!_reports.ContainsKey(id))
             {
                 _reports.Add(id, new PlayerReport(
