@@ -20,7 +20,7 @@ namespace Goblin.Client.Handshake
         [Command("sendbadhb")]
         public void BadHeartbeat()
         {
-            TriggerServerEvent("HeartbeatCB", "BADB0I");
+            TriggerServerEvent("HeartbeatCb", "BADB0I");
         }
         
         public Handshake()
@@ -32,7 +32,7 @@ namespace Goblin.Client.Handshake
         private void DispatchHeartbeat(string hash)
         {
             if (!_debugUseHeartBeat) return;
-            TriggerServerEvent("HeartbeatCB", hash);
+            TriggerServerEvent("HeartbeatCb", hash);
         }
 
     }
