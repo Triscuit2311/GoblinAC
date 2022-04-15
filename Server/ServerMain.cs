@@ -1,6 +1,7 @@
-using System;
-using System.Threading.Tasks;
 using CitizenFX.Core;
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable StringLiteralTypo
 
 namespace Goblin.Server
 {
