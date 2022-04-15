@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using CitizenFX.Core;
+using Goblin.Server.Utils;
 using static CitizenFX.Core.Native.API;
 // ReSharper disable UnusedType.Global
 // ReSharper disable UnusedMember.Global
@@ -13,7 +15,7 @@ namespace Goblin.Server.Handshake
     {
         private readonly Random _numberGen;
         private Dictionary<string, HeartbeatData> _outstandingHeartbeats;
-        private Dictionary<string, PlayerReportingData> _reports;
+
 
         private bool _initialized = false;
 
@@ -21,22 +23,8 @@ namespace Goblin.Server.Handshake
         private const int HeartbeatCheckInterval = 10000;
         private const double LatencyThreshold = 2.0f;
         private const double ReportThreshold = 10.0f;
-
-        private struct PlayerReportingData
-        {
-            public PlayerReportingData(string playerName, IdentifierCollection ids)
-            {
-                PlayerName = playerName;
-                Ids = ids;
-                ReportsMissed = 0;
-                BadReports = 0;
-            }
-
-            private string PlayerName { get; }
-            private IdentifierCollection Ids { get; set; }
-            public int ReportsMissed { get; set; }
-            public int BadReports { get; set; }
-        }
+        
+        
 
         private struct HeartbeatData
         {
@@ -56,11 +44,10 @@ namespace Goblin.Server.Handshake
 
         public HandshakeManager()
         {
-            _reports = new Dictionary<string, PlayerReportingData>();
             _numberGen = new Random();
             _outstandingHeartbeats = new Dictionary<string, HeartbeatData>();
 
-            EventHandlers["HeartbeatCB"] += new Action<Player, string>(HeartbeatCb);
+            EventHandlers["HeartbeatCb"] += new Action<Player, string>(HeartbeatCb);
         }
 
         [Tick]
@@ -85,9 +72,8 @@ namespace Goblin.Server.Handshake
                     continue;
                 }
 
-                if (PlayerDisconnected(kvp.Value.Ids["license"]))
+                if (PlayerUtils.PlayerDisconnected(kvp.Value.Ids["fivem"], Players))
                 {
-                    Debug.WriteLine($"Scheduling [{kvp.Key}] for removal.");
                     heartbeatsToRemove.Add(kvp.Key);
                     continue;
                 }
@@ -97,19 +83,17 @@ namespace Goblin.Server.Handshake
 
                 if (!(elapsedTime >= ReportThreshold)) continue;
 
-                if (!_reports.ContainsKey(kvp.Value.Ids["license"]))
-                {
-                    _reports.Add(kvp.Value.Ids["license"],
-                        new PlayerReportingData(kvp.Value.PlayerName, kvp.Value.Ids));
-                }
-
-                var playerReportingData = _reports[kvp.Value.Ids["license"]];
-                playerReportingData.ReportsMissed += 1;
+                TriggerEvent("AddOrModifyReportString",
+                    kvp.Value.Ids["fivem"],
+                    "MissedHeartbeat",
+                    kvp.Key
+                );
+                
+                heartbeatsToRemove.Add(kvp.Key);
             }
 
             foreach (var key in heartbeatsToRemove)
             {
-                Debug.WriteLine($"Removing [{key}]");
                 _outstandingHeartbeats.Remove(key);
             }
 
@@ -118,19 +102,8 @@ namespace Goblin.Server.Handshake
             return Task.FromResult(0);
         }
 
-        private bool PlayerDisconnected(string license)
-        {
-            var playerDisconnected = true;
-            foreach (var player in Players)
-            {
-                if (player.Identifiers["license"] != license) continue;
-                playerDisconnected = false;
-            }
 
-            return playerDisconnected;
-        }
-
-
+        
         [Tick]
         public async Task<Task<int>> HeartbeatDispatcher()
         {
@@ -167,20 +140,19 @@ namespace Goblin.Server.Handshake
             if (!_outstandingHeartbeats.Remove(hash + ":" + source.Name))
             {
                 Debug.WriteLine("Bad heartbeat from [" + source.Name + "] : [" + hash + "]");
-                if (!_reports.ContainsKey(source.Identifiers["license"]))
-                {
-                    _reports.Add(source.Identifiers["license"],
-                        new PlayerReportingData(source.Name, source.Identifiers));
-                }
 
-                var playerReportingData = _reports[source.Identifiers["license"]];
-                playerReportingData.BadReports += 1;
+                
+                TriggerEvent("AddOrModifyReportString",
+                        source.Identifiers["fivem"],
+                        "BadHeartbeat",
+                        "[" + hash + "]"
+                );
+
                 return;
             }
 
             Debug.WriteLine("Heartbeat from [" + source.Name + "] : [" + hash + "]");
-            
-            
         }
+        
     }
 }
