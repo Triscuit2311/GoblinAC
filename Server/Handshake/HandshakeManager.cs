@@ -44,6 +44,7 @@ namespace Goblin.Server.Handshake
 
         public HandshakeManager()
         {
+            
             _numberGen = new Random();
             _outstandingHeartbeats = new Dictionary<string, HeartbeatData>();
 
@@ -102,8 +103,6 @@ namespace Goblin.Server.Handshake
             return Task.FromResult(0);
         }
 
-
-        
         [Tick]
         public async Task<Task<int>> HeartbeatDispatcher()
         {
@@ -119,7 +118,11 @@ namespace Goblin.Server.Handshake
 
             foreach (var player in Players)
             {
-                if (player == null || player.Character == null) continue;
+                if (player == null || player.Character == null)
+                {
+                    await Delay(10000);
+                    continue;
+                }
 
                 _outstandingHeartbeats.Add(hash + ":" + player.Name,
                     new HeartbeatData(
@@ -151,7 +154,7 @@ namespace Goblin.Server.Handshake
                 return;
             }
 
-            Debug.WriteLine("Heartbeat from [" + source.Name + "] : [" + hash + "]");
+           // Debug.WriteLine("Heartbeat from [" + source.Name + "] : [" + hash + "]");
         }
         
     }
