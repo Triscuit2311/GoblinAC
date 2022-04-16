@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using CitizenFX.Core;
+using Goblin.Client.Crypto;
 using Goblin.Shared;
 using Mono.CSharp;
 using static CitizenFX.Core.Native.API;
@@ -14,11 +15,16 @@ namespace Goblin.Client.Detectors
     {
 
 
+        
         public Tests()
         {
-            
-            
+        
+        }
 
+        [Command("runtest")]
+        public void RunTest()
+        {
+            
         }
 
         
