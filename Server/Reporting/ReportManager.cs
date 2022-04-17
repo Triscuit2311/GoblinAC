@@ -8,14 +8,12 @@ namespace Goblin.Server.Reporting
 {
     public class ReportManager : BaseScript
     {
-        private Dictionary<string, PlayerReport> _reports;
+        private readonly Dictionary<string, PlayerReport> _reports;
 
         public ReportManager()
         {
-            
             _reports = new Dictionary<string, PlayerReport>();
             EventHandlers["AddOrModifyReportString"] += new Action<string, string, string>(AddOrModifyReportString);
-
             EventHandlers["PrintReports"] += new Action(PrintReports);
         }
         
@@ -40,7 +38,7 @@ namespace Goblin.Server.Reporting
             _reports[id].ReportStrings[reportType].Add( $"[{DateTime.Now}] {report}");
         }
 
-        public void PrintReports()
+        private void PrintReports()
         {
             Debug.WriteLine($"\nPrinting {_reports.Count} reports:\n");
             foreach (var report in _reports)
