@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using CitizenFX.Core;
-using Goblin.Client.Crypto;
-using Goblin.Shared;
-using Mono.CSharp;
-using static CitizenFX.Core.Native.API;
+﻿using CitizenFX.Core;
 
 namespace Goblin.Client.Detectors
 {
