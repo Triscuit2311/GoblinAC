@@ -4,22 +4,14 @@ namespace Goblin.Client.Detectors
 {
     public class Tests : BaseScript
     {
-
-
-        
         public Tests()
         {
-        
         }
 
         [Command("runtest")]
         public void RunTest()
         {
-            
         }
-
-        
-
     }
 }
 
