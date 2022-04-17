@@ -3,10 +3,9 @@ using System.Text;
 using CitizenFX.Core;
 using Goblin.Shared;
 
-namespace Goblin.Server.EventManagement
+namespace Goblin.Server.Events
 {
     public class EventInterpreter : BaseScript
-
     {
         public EventInterpreter()
         {
@@ -29,22 +28,21 @@ namespace Goblin.Server.EventManagement
         {
             if (eventName is null || args is null)
             {
-                Debug.WriteLine("Bad Event Call");
+                Debug.WriteLine($"Bad event call from: [{source.Name}]");
                 return;
-                
+
             }
+
             var gc = Crypto.Provider.GlobalClientKey;
             var cc = Crypto.Provider.ClientKeyLookup(source.Identifiers["fivem"]).ClientKey;
-            var nc = Crypto.Provider.ClientKeyLookup(source.Identifiers["fivem"]).NumericalKeys;
-
+            var nc  = Crypto.Provider.ClientKeyLookup(source.Identifiers["fivem"]).NumericalKeys;
             
             eventName = SharedUtils.ComposeHash(
                     gc,
                     cc,
                     eventName);
 
-            
-            StringBuilder sb = new StringBuilder("(Server) Triggering Event: (");
+            var sb = new StringBuilder("(Server) Triggering Event: (");
             sb.Append(eventName);
             
             for (var i = 0; i < args.Length; i++)
@@ -64,7 +62,7 @@ namespace Goblin.Server.EventManagement
                         args[i] = SharedUtils.RevealDouble(nc, double.Parse(args[i].ToString()));
                         break;
                 }
-                sb.Append(args[i].ToString());
+                sb.Append(args[i]);
             }
             
             sb.Append(")");
