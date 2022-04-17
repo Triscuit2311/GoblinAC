@@ -68,6 +68,16 @@ namespace Goblin.Server.Crypto
             EventHandlers["playerDropped"] += new Action<Player, string>(OnPlayerDropped);
         }
 
+        public static PlayerKeyset ClientKeyLookup(string FiveMID)
+        {
+            return _playerKeysets.FirstOrDefault(pair => pair.Key == FiveMID).Value;
+        }
+
+        // [Tick]
+        // private async Task UpdateKeyCycle() { }
+        // TODO: Create a reliable way to discard old client keys and issue new ones, without a lapse.
+        // TODO:... Events need to still come through correctly
+
         [Tick]
         private async Task EnsureAllClientsHaveKeys()
         {
