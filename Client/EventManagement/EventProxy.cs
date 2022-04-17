@@ -11,18 +11,18 @@ namespace Goblin.Client.EventManagement
     {
         public EventProxy()
         {
-            EventHandlers["SendSecureEvent"] += new Action<object[]>(SendSecureEvent);
+            EventHandlers["Goblin::Client::EventProxy"] += new Action<object[]>(ProxyEvent);
         }
 
         
         [Command("tryev")]
         public async Task TryEvent()
         {
-            TriggerEvent("SendSecureEvent", "funevent", "sssss");
+            TriggerEvent("Goblin::Client::EventProxy", "funevent", "sssss");
             Random genny = new Random();
             for (var i = 0; i < 10; i++)
             {
-                TriggerEvent("SendSecureEvent", 
+                TriggerEvent("Goblin::Client::EventProxy", 
                     SharedUtils.RandomAscii(genny.Next(5,30)), 
                     "A",
                     "B",
@@ -32,11 +32,11 @@ namespace Goblin.Client.EventManagement
             }
         }
         
-        private void SendSecureEvent(params object[] args)
+        private void ProxyEvent(params object[] args)
         {
-            var globalKey = KeyManager.globalKey;
-            var clientKey = KeyManager.clientKey;
-            var numKeys = KeyManager.numericalKeys;
+            var globalKey = KeyManager.GlobalKey;
+            var clientKey = KeyManager.ClientKey;
+            var numKeys = KeyManager.NumericalKeys;
             
             StringBuilder sb = new StringBuilder("Triggering Server Event: (Goblin::Server::EventManagement::Event");
 
