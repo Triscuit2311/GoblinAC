@@ -10,61 +10,13 @@ namespace Goblin.Server.Crypto
 {
     public class Provider : BaseScript
     {
-        public struct PlayerKeyset
-        {
-            public string ClientKey;
-            public int[] NumericalKeys;
-
-            public PlayerKeyset(string clientKey, int[] numericalKeys)
-            {
-                this.NumericalKeys = numericalKeys;
-                this.ClientKey = clientKey;
-            }
-        }
         private static Dictionary<string, PlayerKeyset> _playerKeysets;
         public static string GlobalClientKey;
-
-        public static PlayerKeyset ClientKeyLookup(string FiveMID)
-        {
-            return _playerKeysets.FirstOrDefault(pair => pair.Key == FiveMID).Value;
-        }
-
-
-        // private static string Getb64(int len)
-        // {
-        //     var crypt = new RNGCryptoServiceProvider();
-        //     var buf = new byte[len]; 
-        //     crypt.GetBytes(buf);
-        //     return Convert.ToBase64String(buf);
-        // }
         
-        private static string Getb64(int len)
-        {
-            Random r = new Random();
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < len; i++)
-            {
-                sb.Append(Unicode.UnicodeChars[r.Next(0,10000)]);
-            }
-            return sb.ToString();
-        }
-
-
-        private int[] GetNumericalKeys(int num)
-        {
-            Random gen = new Random();
-            var keys = new List<int>();
-            for (int i = 0; i < num; i++)
-            {
-                keys.Add(gen.Next(-10000,10000));
-            }
-            return keys.ToArray();
-        }
-
         public Provider()
         {
             _playerKeysets = new Dictionary<string, PlayerKeyset>();
-            GlobalClientKey = Getb64(64);
+            GlobalClientKey = KeyUtils.GetUnicodeString(64);
             EventHandlers["playerDropped"] += new Action<Player, string>(OnPlayerDropped);
         }
 
@@ -81,7 +33,7 @@ namespace Goblin.Server.Crypto
         [Tick]
         private async Task EnsureAllClientsHaveKeys()
         {
-            await Delay(5000);
+            await Delay(1000);
             
             foreach (var player in Players)
             {
@@ -102,7 +54,7 @@ namespace Goblin.Server.Crypto
 
         private void IssueClientSpecificKeys(Player player)
         {
-            PlayerKeyset playerKeyset = new PlayerKeyset(Getb64(64), GetNumericalKeys(4));
+            var playerKeyset = new PlayerKeyset(KeyUtils.GetUnicodeString(64), KeyUtils.GetNumericalKeys(4));
 
             if (!_playerKeysets.ContainsKey(player.Identifiers["fivem"]))
             {
