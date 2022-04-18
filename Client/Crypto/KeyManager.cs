@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CitizenFX.Core;
+using Goblin.Shared;
 
 namespace Goblin.Client.Crypto
 {
@@ -39,13 +40,15 @@ namespace Goblin.Client.Crypto
                 _numericalKeysReceived = true;
                 Debug.WriteLine("Numerical Keys Received");
             });
+
         }
 
         public bool ClientHasAllKeys()
         {
             return _globalKeyReceived && _clientKeyReceived && _numericalKeysReceived;
         }
+        
+        
 
     }
-
 }

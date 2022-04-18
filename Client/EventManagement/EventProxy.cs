@@ -11,7 +11,7 @@ namespace Goblin.Client.EventManagement
     {
         public EventProxy()
         {
-            EventHandlers["Goblin::Client::EventProxy"] += new Action<object[]>(ProxyEvent);
+            EventHandlers.Add("Goblin::Client::EventProxy", new Action<object[]>(ProxyEvent));
         }
 
         

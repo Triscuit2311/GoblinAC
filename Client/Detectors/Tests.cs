@@ -1,19 +1,31 @@
-﻿using CitizenFX.Core;
+﻿using System;
+using CitizenFX.Core;
 
 namespace Goblin.Client.Detectors
 {
     public class Tests : BaseScript
     {
+
         public Tests()
         {
+            EventHandlers.Add("GoblinTest", new Action(RunTest));
+            // Exports.Add("GoblinExport", new Action(RunTest));
         }
 
-        [Command("runtest")]
-        public void RunTest()
+        [Command("trylua")]
+        private void tryLua()
         {
+            TriggerEvent("luaexamples:reverse");
+        }
+        
+       // [EventHandler("GoblinTest")]
+        private void RunTest()
+        {
+            Debug.WriteLine("Goblin Test Executed!");
         }
     }
 }
+
 
 
 // if (NetworkIsInSpectatorMode())

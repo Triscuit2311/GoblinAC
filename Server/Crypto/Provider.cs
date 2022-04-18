@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using CitizenFX.Core;
+using Goblin.Shared;
 
 namespace Goblin.Server.Crypto
 {
@@ -16,10 +17,34 @@ namespace Goblin.Server.Crypto
         public Provider()
         {
             _playerKeysets = new Dictionary<string, PlayerKeyset>();
-            GlobalClientKey = KeyUtils.GetUnicodeString(64);
+            GlobalClientKey = KeyUtils.GetKey(64);
             EventHandlers["playerDropped"] += new Action<Player, string>(OnPlayerDropped);
+            EventHandlers["RunKeyTests"] += new Action(TestKeys);
         }
 
+        private async void TestKeys()
+        {
+            int num = 1_000_000_000;
+            Debug.WriteLine($"Testing {num} combinations of Global/Client Keys...");
+            string b = "LuaExamples::Server::SomeExtraSafeEvent::Goblin::Client::EventProxy";
+            for (int i = 0; i <= num; i++)
+            {
+                if (i % 100000 == 0)
+                {
+                    Debug.WriteLine($"Tests Complete: {i}");
+                    await Delay(500);
+                }
+
+                GlobalClientKey = KeyUtils.GetKey(128);
+                var ClientKey = KeyUtils.GetKey(128);
+
+                var hashed = SharedUtils.ComposeHash(GlobalClientKey, ClientKey, b);
+                var unhashed = SharedUtils.ComposeHash(GlobalClientKey, ClientKey, hashed);
+                if (b != unhashed)
+                    throw new Exception("BAD KEYS");
+            }
+        }
+        
         public static PlayerKeyset ClientKeyLookup(string FiveMID)
         {
             return _playerKeysets.FirstOrDefault(pair => pair.Key == FiveMID).Value;
@@ -42,7 +67,7 @@ namespace Goblin.Server.Crypto
 
                 Debug.WriteLine($"[In Session] Dispatching Keys to [{player.Name}]");
                 IssueGlobal(player);
-                IssueClientSpecificKeys(player);
+                await IssueClientSpecificKeys(player);
             }
         }
 
@@ -52,9 +77,21 @@ namespace Goblin.Server.Crypto
                 "ReceiveGlobalKey", GlobalClientKey);
         }
 
-        private void IssueClientSpecificKeys(Player player)
+        private async Task IssueClientSpecificKeys(Player player)
         {
-            var playerKeyset = new PlayerKeyset(KeyUtils.GetUnicodeString(64), KeyUtils.GetNumericalKeys(4));
+            
+            var playerKeyset = new PlayerKeyset();
+
+            var flag = false;
+            while (!flag)
+            {
+                playerKeyset.ClientKey = KeyUtils.GetKey(64);
+                flag = AreKeysValidForAllAscii(GlobalClientKey, playerKeyset.ClientKey);
+                await Delay(1000);
+            }
+
+
+            playerKeyset.NumericalKeys = KeyUtils.GetNumericalKeys(4);
 
             if (!_playerKeysets.ContainsKey(player.Identifiers["fivem"]))
             {
@@ -62,6 +99,7 @@ namespace Goblin.Server.Crypto
             }
 
             _playerKeysets[player.Identifiers["fivem"]] = playerKeyset;
+            
 
             TriggerClientEvent(player,
                 "ReceiveClientKey", ClientKeyLookup(player.Identifiers["fivem"]).ClientKey);
@@ -73,6 +111,14 @@ namespace Goblin.Server.Crypto
         {
             _playerKeysets.Remove(player.Identifiers["fivem"]);
         }
-        
+
+        private bool AreKeysValidForAllAscii(string globalKey, string clientKey)
+        {
+            return !(from str in Charset.AsciiStrings 
+                let hashed = SharedUtils.ComposeHash(globalKey, clientKey, str)
+                let unhashed = SharedUtils.ComposeHash(globalKey, clientKey, hashed)
+                where unhashed != str select str).Any();
+        }
+
     }
 }

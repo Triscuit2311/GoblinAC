@@ -20,6 +20,12 @@ namespace Goblin.Client
             TriggerServerEvent("PrintReports");
         }
         
+        [Command("testkeys")]
+        public void RunKeys()
+        {
+            TriggerServerEvent("RunKeyTests");
+        }
+        
         [Tick]
         public Task OnTick()
         {

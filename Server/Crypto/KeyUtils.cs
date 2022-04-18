@@ -17,13 +17,13 @@ internal class KeyUtils
         return keys.ToArray();
     }
     
-    internal static string GetUnicodeString(int len)
+    internal static string GetKey(int len)
     {
         var r = new Random();
         var sb = new StringBuilder();
         for (var i = 0; i < len; i++)
         {
-            sb.Append(Unicode.UnicodeChars[r.Next(0,10000)]);
+            sb.Append(Charset.UnicodeChars[r.Next(0,2501)]);
         }
         return sb.ToString();
     }
