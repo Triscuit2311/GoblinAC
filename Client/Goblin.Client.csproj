@@ -2,12 +2,18 @@
     <PropertyGroup>
       <TargetFramework>net452</TargetFramework>
       <LangVersion>latest</LangVersion>
-      <Configurations>Debug;Release;Distribute;Distribute (Dev)</Configurations>
+      <Configurations>Debug;Release;Distribute;Development</Configurations>
       <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Distribute' ">
       <OutputPath>..\dist\Client</OutputPath>
       <Optimize>true</Optimize>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Development' ">
+      <DefineConstants>CLIENT; DEVELOPMENT_BUILD;</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Distribute (Dev)' ">
+      <DefineConstants>CLIENT; DEVELOPMENT_BUILD;</DefineConstants>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Distribute (Dev)' ">
       <DefineConstants>CLIENT; DEVELOPMENT_BUILD;</DefineConstants>

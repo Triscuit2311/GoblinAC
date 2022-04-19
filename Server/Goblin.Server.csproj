@@ -5,11 +5,14 @@
       <TargetName>$(AssemblyName).net</TargetName>
       <DefineConstants>SERVER</DefineConstants>
       <LangVersion>latest</LangVersion>
-      <Configurations>Debug;Release;Distribute;Distribute (Dev)</Configurations>
+      <Configurations>Debug;Release;Distribute;Development</Configurations>
       <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Distribute' ">
       <OutputPath>..\dist\Server</OutputPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Development' ">
+      <DefineConstants>SERVER; DEVELOPMENT_BUILD;</DefineConstants>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Distribute (Dev)' ">
       <DefineConstants>SERVER; DEVELOPMENT_BUILD;</DefineConstants>
