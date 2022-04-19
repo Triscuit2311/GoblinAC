@@ -11,70 +11,53 @@ namespace Goblin.Server.Crypto
     {
         private static Dictionary<string, PlayerKeyManager> _playerKeysets;
         public static string GlobalClientKey;
-        private static bool _allowIssueKeys = true;
+        private static readonly int _keyReissueInterval = 30_000; // ms
         
         public Provider()
         {
             _playerKeysets = new Dictionary<string, PlayerKeyManager>();
             GlobalClientKey = KeyUtils.GetKey(64);
             EventHandlers["playerDropped"] += new Action<Player, string>(OnPlayerDropped);
-            EventHandlers["resetKeys"] += new Action(TestResetKeys);
         }
-
-        private async void TestResetKeys()
-        {
-            Debug.WriteLine("Trying to reset keys.");
-            foreach (var player in Players)
-            {
-                TriggerClientEvent(player,"ClearCryptoKeys");
-                _playerKeysets[player.Identifiers["fivem"]].NeedsKeys = true;
-                Debug.WriteLine($"Reset keys for {player.Name}.");
-            }
-
-            _allowIssueKeys = false;
-            await Delay(30 * 1000);
-            Debug.WriteLine("Allowing key issue.");
-            _allowIssueKeys = true;
-        }
-
 
         public static PlayerKeyManager ClientKeyLookup(string FiveMID)
         {
             return _playerKeysets.FirstOrDefault(pair => pair.Key == FiveMID).Value;
         }
 
-
+        
         [Tick]
-        private async Task UpdateKeyCycle()
+        private async Task UpdateKeys()
         {
-            
-        }
-
-
-        [Tick]
-        private async Task<Task<int>> EnsureAllClientsHaveKeys()
-        {
-            await Delay(1000);
-
-            if (!_allowIssueKeys)
-            {
-                Debug.WriteLine("Key issue not allowed");
-                return Task.FromResult(0);
-            }
-            
             foreach (var player in Players)
             {
                 if (player.Character is null) continue;
-                if (_playerKeysets.ContainsKey(player.Identifiers["fivem"]) 
-                    && !_playerKeysets[player.Identifiers["fivem"]].NeedsKeys) continue;
-
-                Debug.WriteLine($"[In Session] Dispatching Keys to [{player.Name}]");
+                
+                if (_playerKeysets.ContainsKey(player.Identifiers["fivem"]) &&
+                !_playerKeysets[player.Identifiers["fivem"]].NeedsKeys) continue;
+                
+                TriggerClientEvent(player,"ClearCryptoKeys");
+                Debug.WriteLine($"Reset keys for {player.Name}.");
+                
                 IssueGlobal(player);
-                await IssueClientSpecificKeys(player);
+                IssueClientSpecificKeys(player);
+                
+                Debug.WriteLine($"Issued keys for {player.Name}.");
             }
 
-            return Task.FromResult(0);
+            await Delay(5000);
         }
+
+        [Tick]
+        private async Task ReissueReset()
+        {
+            await Delay(_keyReissueInterval);
+            foreach (var playerKeyManager in _playerKeysets)
+            {
+                playerKeyManager.Value.NeedsKeys = true;
+            }
+        }
+        
 
         private void IssueGlobal(Player player)
         {
@@ -82,20 +65,11 @@ namespace Goblin.Server.Crypto
                 "ReceiveGlobalKey", GlobalClientKey);
         }
 
-        private async Task IssueClientSpecificKeys(Player player)
+        private void IssueClientSpecificKeys(Player player)
         {
-            
             var playerKeyset = new PlayerKeyManager();
 
-            var flag = false;
-            while (!flag)
-            {
-                playerKeyset.ClientKey = KeyUtils.GetKey(64);
-                flag = AreKeysValidForAllAscii(GlobalClientKey, playerKeyset.ClientKey);
-                await Delay(1000);
-            }
-
-
+            playerKeyset.ClientKey = KeyUtils.GetKey(64);
             playerKeyset.NumericalKeys = KeyUtils.GetNumericalKeys(4);
             playerKeyset.NeedsKeys = false;
 
@@ -106,12 +80,10 @@ namespace Goblin.Server.Crypto
             
             _playerKeysets[player.Identifiers["fivem"]] = playerKeyset;
             
-
             TriggerClientEvent(player,
                 "ReceiveClientKey", ClientKeyLookup(player.Identifiers["fivem"]).ClientKey);
             TriggerClientEvent(player,
                 "ReceiveNumericalKeys", ClientKeyLookup(player.Identifiers["fivem"]).NumericalKeys);
-            
         }
 
         private void OnPlayerDropped([FromSource] Player player, string reason)
@@ -123,8 +95,8 @@ namespace Goblin.Server.Crypto
         {
             return !(from str in Charset.AsciiStrings 
                 let hashed = SharedUtils.ComposeHash(globalKey, clientKey, str)
-                let unhashed = SharedUtils.ComposeHash(globalKey, clientKey, hashed)
-                where unhashed != str select str).Any();
+                let unHashed = SharedUtils.ComposeHash(globalKey, clientKey, hashed)
+                where unHashed != str select str).Any();
         }
 
     }
