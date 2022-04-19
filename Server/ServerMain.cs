@@ -9,14 +9,6 @@ namespace Goblin.Server
     {
         public ServerMain()
         {
-            Debug.WriteLine("Hi from Goblin.Server!");
-            
-        }
-
-        [Command("hello_server")]
-        public void HelloServer()
-        {
-            Debug.WriteLine("Sure, hello.");
         }
     }
 }
