@@ -59,12 +59,6 @@ namespace Goblin.Client.Crypto
 
         }
 
-
-        [Command("resetkeys")]
-        public void resetkeys(){
-            TriggerServerEvent("resetKeys");
-        }
-
         [Tick]
         private async Task<Task<int>> OnTick()
         {
