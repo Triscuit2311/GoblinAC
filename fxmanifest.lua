@@ -1,12 +1,10 @@
 fx_version 'bodacious'
 game 'gta5'
 
-file 'Client/bin/Release/**/publish/*.dll'
+file 'Client/*.dll'
 
-client_script 'Client/bin/Release/**/publish/*.net.dll'
-server_script 'Server/bin/Release/**/publish/*.net.dll'
-
-export "GoblinExport"
+client_script 'Client/*.net.dll'
+server_script 'Server/*.net.dll'
 
 author 'Dante Trisciuzzi'
 version '1.0.0'
