@@ -11,6 +11,7 @@ namespace Goblin.Client.Crypto
         internal static string GlobalKey = "";
         internal static string ClientKey = "";
         internal static List<int> NumericalKeys;
+        internal static bool AllKeys { get; private set; } = false;
         private bool _globalKeyReceived = false;
         private bool _clientKeyReceived = false;
         private bool _numericalKeysReceived = false;
@@ -41,14 +42,39 @@ namespace Goblin.Client.Crypto
                 Debug.WriteLine("Numerical Keys Received");
             });
 
+            EventHandlers["ClearCryptoKeys"] += new Action(() =>
+            {
+                _clientKeyReceived = false;
+                _globalKeyReceived = false;
+                _numericalKeysReceived = false;
+                AllKeys = false;
+                GlobalKey = "";
+                ClientKey = "";
+                NumericalKeys.Clear();
+            });
+
         }
 
-        public bool ClientHasAllKeys()
-        {
-            return _globalKeyReceived && _clientKeyReceived && _numericalKeysReceived;
+
+        [Command("resetkeys")]
+        public void resetkeys(){
+            TriggerServerEvent("resetKeys");
         }
-        
-        
+
+        [Tick]
+        private async Task<Task<int>> OnTick()
+        {
+            if (_globalKeyReceived && _clientKeyReceived && _numericalKeysReceived)
+            {
+                AllKeys = true;
+                await Delay(1000);
+                return Task.FromResult(0);
+            }
+
+            AllKeys = false;
+            await Delay(1000);
+            return Task.FromResult(0);
+        }
 
     }
 }
