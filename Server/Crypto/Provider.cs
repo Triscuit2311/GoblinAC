@@ -36,7 +36,7 @@ namespace Goblin.Server.Crypto
                 if (_playerKeysets.ContainsKey(player.Identifiers["fivem"]) &&
                 !_playerKeysets[player.Identifiers["fivem"]].NeedsKeys) continue;
                 
-                TriggerClientEvent(player,"ClearCryptoKeys");
+                TriggerClientEvent(player,"Goblin::Client::KeyManager::ClearCryptoKeys");
                 Debug.WriteLine($"Reset keys for {player.Name}.");
                 
                 IssueGlobal(player);
@@ -62,7 +62,7 @@ namespace Goblin.Server.Crypto
         private void IssueGlobal(Player player)
         {
             TriggerClientEvent(player,
-                "ReceiveGlobalKey", GlobalClientKey);
+                "Goblin::Client::KeyManager::ReceiveGlobalKey", GlobalClientKey);
         }
 
         private void IssueClientSpecificKeys(Player player)
@@ -81,9 +81,9 @@ namespace Goblin.Server.Crypto
             _playerKeysets[player.Identifiers["fivem"]] = playerKeyset;
             
             TriggerClientEvent(player,
-                "ReceiveClientKey", ClientKeyLookup(player.Identifiers["fivem"]).ClientKey);
+                "Goblin::Client::KeyManager::ReceiveClientKey", ClientKeyLookup(player.Identifiers["fivem"]).ClientKey);
             TriggerClientEvent(player,
-                "ReceiveNumericalKeys", ClientKeyLookup(player.Identifiers["fivem"]).NumericalKeys);
+                "Goblin::Client::KeyManager::ReceiveNumericalKeys", ClientKeyLookup(player.Identifiers["fivem"]).NumericalKeys);
         }
 
         private void OnPlayerDropped([FromSource] Player player, string reason)
