@@ -8,18 +8,7 @@ namespace Goblin.Client.Development;
 
 public class DevCommands : BaseScript
 {
-    [Command("debugprintreports")]
-    public void PrintReports()
-    {
-        TriggerServerEvent("PrintReports");
-    }
-        
-    [Command("testkeys")]
-    public void RunKeys()
-    {
-        TriggerServerEvent("RunKeyTests");
-    }
-    
+
     [Command("tryev")]
     public async Task TryEvent()
     {
@@ -36,11 +25,6 @@ public class DevCommands : BaseScript
             await Delay(100);
         }
     }
-    
-    [Command("trylua")]
-    private void tryLua()
-    {
-        TriggerEvent("luaexamples:reverse");
-    }
+
 }
 #endif
