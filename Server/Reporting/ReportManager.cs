@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using CitizenFX.Core;
 using Goblin.Server.Utils;
 
@@ -13,10 +14,11 @@ namespace Goblin.Server.Reporting
         public ReportManager()
         {
             _reports = new Dictionary<string, PlayerReport>();
-            EventHandlers["AddOrModifyReportString"] += new Action<string, string, string>(AddOrModifyReportString);
-            EventHandlers["PrintReports"] += new Action(PrintReports);
+            EventHandlers["Goblin::Server::Reporting::AddOrModifyReportString"] 
+                += new Action<string, string, string>(AddOrModifyReportString);
+            EventHandlers["Goblin::Server::Reporting::SendDiscordReport"]
+                += new Action<string>(SendDiscordReport);
         }
-        
         
         private void AddOrModifyReportString(string id, string reportType, string report )
         {
@@ -60,7 +62,61 @@ namespace Goblin.Server.Reporting
                 
             }
         }
+
+#if DEVELOPMENT_BUILD
+        [Command("SendDiscordReports")]
+        public void SendMyOwnReport([FromSource]Player source)
+        {
+            Debug.WriteLine(source.Name);
+            SendDiscordReport(source.Identifiers["fivem"]);
+        }
+#endif
         
+        private void SendDiscordReport(string id)
+        {
+            if (!_reports.ContainsKey(id))
+            {
+                Debug.WriteLine($"Attempt to print report for player [{id}], no reports available.");
+                return;
+            }
+            var msgBody = new StringBuilder();
+            msgBody.Append("**Player Name:** ");
+            msgBody.Append(_reports[id].PlayerName);
+            msgBody.Append('\n');
+            msgBody.Append("**FiveM ID:** ");
+            msgBody.Append(id);
+            msgBody.Append('\n');
+            
+            if(_reports[id].Ids.Contains("steamid"))
+            {
+                msgBody.Append("**Steam:** ");
+                msgBody.Append(_reports[id].Ids["steamid"]);
+                msgBody.Append('\n');
+            }
+            
+            msgBody.Append("**Discord:** [");
+            msgBody.Append(_reports[id].Ids["discord"]);
+            msgBody.Append("](https://www.discoid.cc/");
+            msgBody.Append(_reports[id].Ids["discord"]);
+            msgBody.Append(")\n**Reports:**\n\n");
+            foreach (var kvp in _reports[id].ReportStrings)
+            {
+                msgBody.Append("**");
+                msgBody.Append(kvp.Key);
+                msgBody.Append(": **\n```diff\n");
+                foreach (var s in kvp.Value)
+                {
+                    msgBody.Append("- ");
+                    msgBody.Append(s);
+                    msgBody.Append('\n');
+                }
+                msgBody.Append("```\n");
+
+            }
+        
+            DiscordWebhook.SendEmbed(DiscordWebhook.WebhookType.Violation,
+                msgBody.ToString(), $"Player Report: {_reports[id].PlayerName}");
+        }
         
     }
 }
