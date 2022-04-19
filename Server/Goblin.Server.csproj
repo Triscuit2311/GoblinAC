@@ -13,6 +13,7 @@
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Development' ">
       <DefineConstants>SERVER; DEVELOPMENT_BUILD;</DefineConstants>
+      <OutputPath>..\dist\Server\</OutputPath>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Distribute (Dev)' ">
       <DefineConstants>SERVER; DEVELOPMENT_BUILD;</DefineConstants>
