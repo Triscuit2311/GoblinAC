@@ -11,21 +11,8 @@ namespace Goblin.Client
     {
         public ClientMain()
         {
-            Debug.WriteLine("Hi from Goblin.Client!");
         }
 
-        [Command("debugprintreports")]
-        public void PrintReports()
-        {
-            TriggerServerEvent("PrintReports");
-        }
-        
-        [Command("testkeys")]
-        public void RunKeys()
-        {
-            TriggerServerEvent("RunKeyTests");
-        }
-        
         [Tick]
         public Task OnTick()
         {
