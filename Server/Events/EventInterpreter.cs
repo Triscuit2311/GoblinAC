@@ -10,6 +10,7 @@ namespace Goblin.Server.Events
         public EventInterpreter()
         {
             EventHandlers["Goblin::Server::EventManagement::Event"] += new Action<Player, string, object[]>(ReceiveEvent);
+            
             EventHandlers["funevent"] += new Action<object[]>(FunEvent);
         }
 
