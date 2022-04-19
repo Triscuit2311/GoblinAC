@@ -8,21 +8,8 @@ namespace Goblin.Client.Detectors
 
         public Tests()
         {
-            EventHandlers.Add("GoblinTest", new Action(RunTest));
-            // Exports.Add("GoblinExport", new Action(RunTest));
         }
 
-        [Command("trylua")]
-        private void tryLua()
-        {
-            TriggerEvent("luaexamples:reverse");
-        }
-        
-       // [EventHandler("GoblinTest")]
-        private void RunTest()
-        {
-            Debug.WriteLine("Goblin Test Executed!");
-        }
     }
 }
 
