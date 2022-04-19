@@ -22,20 +22,20 @@ namespace Goblin.Client.Crypto
             ClientKey = "";
             NumericalKeys = new List<int>();
             
-            EventHandlers["ReceiveClientKey"] += new Action<string>(key =>
+            EventHandlers["Goblin::Client::KeyManager::ReceiveClientKey"] += new Action<string>(key =>
             {
                 ClientKey = key;
                 _clientKeyReceived = true;
                 Debug.WriteLine("Client Key Received");
             });
             
-            EventHandlers["ReceiveGlobalKey"] += new Action<string>(key => { 
+            EventHandlers["Goblin::Client::KeyManager::ReceiveGlobalKey"] += new Action<string>(key => { 
                 GlobalKey = key;
                 _globalKeyReceived = true;
                 Debug.WriteLine("Global Key Received");
             });
             
-            EventHandlers["ReceiveNumericalKeys"] += new Action<List<object>>(keys =>
+            EventHandlers["Goblin::Client::KeyManager::ReceiveNumericalKeys"] += new Action<List<object>>(keys =>
             {
                 NumericalKeys = new List<int>();
                 foreach (var obj in keys)
@@ -46,7 +46,7 @@ namespace Goblin.Client.Crypto
                 Debug.WriteLine("Numerical Keys Received");
             });
 
-            EventHandlers["ClearCryptoKeys"] += new Action(() =>
+            EventHandlers["Goblin::Client::KeyManager::ClearCryptoKeys"] += new Action(() =>
             {
                 _clientKeyReceived = false;
                 _globalKeyReceived = false;
