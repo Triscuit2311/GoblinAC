@@ -18,6 +18,10 @@ namespace Goblin.Client.Crypto
         
         public KeyManager()
         {
+            GlobalKey = "";
+            ClientKey = "";
+            NumericalKeys = new List<int>();
+            
             EventHandlers["ReceiveClientKey"] += new Action<string>(key =>
             {
                 ClientKey = key;
