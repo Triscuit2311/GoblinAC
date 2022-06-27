@@ -5,24 +5,14 @@ using Goblin.Shared;
 
 namespace Goblin.Server.Events
 {
+    
     public class EventInterpreter : BaseScript
     {
         public EventInterpreter()
         {
             EventHandlers["Goblin::Server::EventManagement::Event"] += new Action<Player, string, object[]>(ReceiveEvent);
-            
-            EventHandlers["funevent"] += new Action<object[]>(FunEvent);
         }
-
-        private void FunEvent(params object[] args)
-        {
-            Debug.WriteLine("FunEvent!!");
-            for (var i = 0; i< args.Length; i++)
-            {
-                Debug.WriteLine($"arg[{i}]: {args[i]}");
-            }
-        }
-
+        
         private void ReceiveEvent([FromSource]Player source,
             string eventName, params object[] args)
         {
@@ -52,6 +42,10 @@ namespace Goblin.Server.Events
                 {
                     case string _:
                         args[i] =  SharedUtils.ComposeHash(gc, cc, args[i].ToString());
+                        if ((string) args[i] == "SOURCE_ID")
+                        {
+                            args[i] = source.Identifiers["fivem"];
+                        }
                         break;
                     case short _:
                     case int _:
@@ -62,6 +56,7 @@ namespace Goblin.Server.Events
                         args[i] = SharedUtils.RevealDouble(nc, double.Parse(args[i].ToString()));
                         break;
                 }
+                
                 sb.Append(args[i]);
             }
             

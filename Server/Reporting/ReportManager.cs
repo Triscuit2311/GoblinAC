@@ -19,9 +19,11 @@ namespace Goblin.Server.Reporting
             EventHandlers["Goblin::Server::Reporting::SendDiscordReport"]
                 += new Action<string>(SendDiscordReport);
         }
-        
+
+
         private void AddOrModifyReportString(string id, string reportType, string report )
         {
+            Debug.WriteLine("Report being added");
             var player = PlayerUtils.GetPlayerByFiveMid(id, Players);
             
             if (!_reports.ContainsKey(id))

@@ -37,12 +37,9 @@ namespace Goblin.Server.Crypto
                 !_playerKeysets[player.Identifiers["fivem"]].NeedsKeys) continue;
                 
                 TriggerClientEvent(player,"Goblin::Client::KeyManager::ClearCryptoKeys");
-                Debug.WriteLine($"Reset keys for {player.Name}.");
                 
                 IssueGlobal(player);
                 IssueClientSpecificKeys(player);
-                
-                Debug.WriteLine($"Issued keys for {player.Name}.");
             }
 
             await Delay(5000);

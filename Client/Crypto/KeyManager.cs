@@ -26,13 +26,13 @@ namespace Goblin.Client.Crypto
             {
                 ClientKey = key;
                 _clientKeyReceived = true;
-                Debug.WriteLine("Client Key Received");
+               // Debug.WriteLine("Client Key Received");
             });
             
             EventHandlers["Goblin::Client::KeyManager::ReceiveGlobalKey"] += new Action<string>(key => { 
                 GlobalKey = key;
                 _globalKeyReceived = true;
-                Debug.WriteLine("Global Key Received");
+               // Debug.WriteLine("Global Key Received");
             });
             
             EventHandlers["Goblin::Client::KeyManager::ReceiveNumericalKeys"] += new Action<List<object>>(keys =>
@@ -43,7 +43,7 @@ namespace Goblin.Client.Crypto
                     NumericalKeys.Add(int.Parse(obj.ToString()));
                 }
                 _numericalKeysReceived = true;
-                Debug.WriteLine("Numerical Keys Received");
+               // Debug.WriteLine("Numerical Keys Received");
             });
 
             EventHandlers["Goblin::Client::KeyManager::ClearCryptoKeys"] += new Action(() =>

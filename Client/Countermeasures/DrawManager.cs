@@ -25,8 +25,10 @@ public class DrawManager
     }
     void DrawCheaterTag()
     {
-        var rootVec3 = API.GetPedBoneCoords(API.PlayerPedId(), (int)pBones.SKEL_ROOT, 0, 0, 0);
-        var headVec3 = API.GetPedBoneCoords(API.PlayerPedId(), (int)pBones.SKEL_Head, 0, 0, 0);
+        var rootVec3 = API.GetPedBoneCoords(API.PlayerPedId(),
+            (int)pBones.SKEL_ROOT, 0, 0, 0);
+        var headVec3 = API.GetPedBoneCoords(API.PlayerPedId(),
+            (int)pBones.SKEL_Head, 0, 0, 0);
         headVec3.Z += 0.05f;
         var tagVec = headVec3;
         tagVec.Z += 0.5f;
