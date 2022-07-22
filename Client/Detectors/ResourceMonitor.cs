@@ -11,7 +11,6 @@ public class ResourceMonitor : BaseScript
     public ResourceMonitor()
     {
         EventHandlers["onClientResourceStop"] += new Action<string>(OnClientResourceStop);
-        EventHandlers["onClientResourceStart"] += new Action<string>(OnClientResourceStart);
     }
 
     [Tick]
@@ -26,22 +25,18 @@ public class ResourceMonitor : BaseScript
             SendDetectionReport($"Resource number changed from [{_lastNumResources}] to [{API.GetNumResources()}].");
         }
     }
+    
     private void OnClientResourceStop(string resourceName)
     {
-        if (resourceName == "chat")
-        {
-            API.CancelEvent();
-            SendDetectionReport($"Resource [{resourceName}] attempted stop by client.");
-        }
+        // if (resourceName == "chat")
+        // {
+        //     API.CancelEvent();
+        //     SendDetectionReport($"Resource [{resourceName}] attempted stop by client.");
+        // }
 
         SendDetectionReport($"Resource [{resourceName}] stopped by client.");
     }
-                
-                
-    private void OnClientResourceStart(string resourceName)
-    {
-        //SendDetectionReport($"Resource [{resourceName}] started by client.");
-    }
+    
     
     void SendDetectionReport(string msg)
     {

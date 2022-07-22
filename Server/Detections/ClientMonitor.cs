@@ -6,9 +6,7 @@ namespace Goblin.Server.Detections;
 public class ClientMonitor : BaseScript
 {
     private int ClientCheckInterval = 10000;
-    
-    
-    
+
     [Tick]
     async Task ClientCheckDispatch()
     {

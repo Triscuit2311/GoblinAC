@@ -51,9 +51,5 @@ namespace Goblin.Shared
             return num - keys.Sum();
         }
 
-
-
-
-
     }
 }

@@ -28,10 +28,10 @@ public class DiscordWebhook : BaseScript
     [Command("DoSendHook")]
     public static void DoHook()
     {
-        // SendEmbed(WebhookType.Info, "They're in amish.", "INFO: Big Doinks Located!", "rip.");
-        // SendEmbed(WebhookType.Error, "Sum ting wong");
-        // SendEmbed(WebhookType.Violation,"Some idiot triggered \'DumEventName5000\' with NULL parameters. ", "Violation: Triggering Event");
-        // SendEmbed(WebhookType.Other, "It keeps you safe.", ":japanese_goblin: BUY GOBLIN :japanese_goblin:", "Goblin makes your dick bigger.");
+        // SendEmbed(WebhookType.Info, "Great information", "INFO: Cool Things", "Neat Footer");
+        // SendEmbed(WebhookType.Error, "Some really great error");
+        // SendEmbed(WebhookType.Violation,"Someone triggered \'DumEventName5000\' with NULL parameters. ", "Violation: Triggering Event");
+        // SendEmbed(WebhookType.Other, "It keeps you safe.", ":japanese_goblin: BUY GOBLIN :japanese_goblin:", "Goblin is cool.");
         
         SendMessage("HEY");
     }
@@ -57,8 +57,8 @@ public class DiscordWebhook : BaseScript
             color
         );
     }
-    
-    internal static void SendMessage(string msg)
+
+    private static void SendMessage(string msg)
     {
         TriggerEvent("Goblin::Extensions::SendDiscordMessage",
             WebhookUrl,
