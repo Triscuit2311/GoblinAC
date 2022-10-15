@@ -14,10 +14,15 @@ The client has a local event handler to proxy calls to the server, when this rec
 
 On the Server side, when an event comes in, it is decoded using the last issued keys to that specific client. This means that any attempt to send de-coded events to the server, modify the keys, or the arguments of an event will result in an invalid event call. Trying to trigger an event with any of these conditions will trigger an alert on the server. Upon recieving a valid event, GoblinAC will usher that call to the correct server-sided script.
   
-## **Showcase**
+## **Showcase** (Using commonly available cheat software)
 What the server gets from Goblin AC vs. What the client sends:
-
 ![Event Logger](/img/goblic_ac_eventlogger.png)
+
+Attempting to re-trigger events:
+![Re-Triggers](/img/goblin_ac_retrigger.png)
+
+We cannot trigger the Server Events directly to the script:
+![Original Triggers](/img/goblic_ac_noservertriggers.png)
 
 ## **So can I just drop it in?**
 
