@@ -15,7 +15,8 @@ The client has a local event handler to proxy calls to the server, when this rec
 On the Server side, when an event comes in, it is decoded using the last issued keys to that specific client. This means that any attempt to send de-coded events to the server, modify the keys, or the arguments of an event will result in an invalid event call. Trying to trigger an event with any of these conditions will trigger an alert on the server. Upon recieving a valid event, GoblinAC will usher that call to the correct server-sided script.
   
 ## **Showcase** (Using commonly available cheat software)
-What the server gets from Goblin AC vs. What the client sends:
+
+What the server gets from Goblin AC vs. What the client sends/sees:
 ![Event Logger](/img/goblic_ac_eventlogger.png)
 
 Attempting to re-trigger events:
@@ -26,5 +27,8 @@ Attempting to re-trigger events:
 **No**. Setting up Goblin AC requires a very basic understanding of syntax for your scripts. It is compatible with C# and Lua, anything that triggers events between the server and the client.
 
 ### **How can I set it up?**
-- Change the events on your server-sided scripts to only accept server-sided triggers.
-- Send your client-sided events to EventProxy() instead of to the server
+- Change the events on your server-sided scripts to only accept server-sided triggers. See [example script server.lua](/examples/TestResource/server/server.lua).
+- Send your client-sided events to EventProxy() instead of to the server. [example script client.lua](/examples/TestResource/client/client.lua).
+
+
+
