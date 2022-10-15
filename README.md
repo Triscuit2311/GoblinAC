@@ -21,9 +21,6 @@ What the server gets from Goblin AC vs. What the client sends:
 Attempting to re-trigger events:
 ![Re-Triggers](/img/goblin_ac_retrigger.png)
 
-We cannot trigger the Server Events directly to the script:
-![Original Triggers](/img/goblic_ac_noservertriggers.png)
-
 ## **So can I just drop it in?**
 
 **No**. Setting up Goblin AC requires a very basic understanding of syntax for your scripts. It is compatible with C# and Lua, anything that triggers events between the server and the client.
