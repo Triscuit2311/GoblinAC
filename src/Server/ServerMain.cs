@@ -8,10 +8,4 @@ public class ServerMain : BaseScript
     {
         Debug.WriteLine("GoblinAC.Server is Running");
     }
-
-    [Command("gobsvr")]
-    public void HelloServer()
-    {
-        Debug.WriteLine("ServerCmd Executed");
-    }
 }
