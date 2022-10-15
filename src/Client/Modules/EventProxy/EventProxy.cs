@@ -9,6 +9,7 @@ namespace GoblinAC.Client.Modules;
 
 public class EventProxy : BaseScript
 {
+    // ReSharper disable once FieldCanBeMadeReadOnly.Local
     private List<object[]> _eventQueue;
 
     public EventProxy()
