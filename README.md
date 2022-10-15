@@ -38,4 +38,4 @@ Attempting to re-trigger events:
 Those inividuals willing and able to work around GoblinAC are far from the average cheat-abuser. GoblinAC is still highly effective against the majority of cheaters using tools to trigger events.
 
 ### **Will you install this for me?**
-**No.** I offer a custom Anti-Cheat development service for private servers with a much broader spectrum of features, including those seen in Goblin AC public. I can offer some support for issues via github as well.
+**No.** I offer a custom Anti-Cheat development service for private servers with a much broader spectrum of features, including those seen in Goblin AC public. I can offer some support for issues via github.
