@@ -22,7 +22,6 @@ public class EventProxy : BaseScript
         if (!KeyManager.AllKeys)
         {
             _eventQueue.Add(args);
-            //Debug.WriteLine("Added event to Queue.");
             return;
         }
 
@@ -49,7 +48,7 @@ public class EventProxy : BaseScript
 
         TriggerServerEvent("Goblin::Server::EventInterpreter::SendEvent", args);
     }
-
+    
 
     [Tick]
     private async Task<Task<int>> OnTick()
@@ -58,7 +57,6 @@ public class EventProxy : BaseScript
         {
             foreach (var argSet in _eventQueue)
             {
-                //Debug.WriteLine("Sending Event from queue.");
                 ProxyEvent(argSet);
             }
 
