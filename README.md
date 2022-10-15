@@ -1,4 +1,5 @@
 *GoblinAC is still under development and is not in a finished state, it is released for free with no warranty or liability!*
+Licenced under the [MIT License](LICENSE.txt)
 
 # Goblin Anti-Cheat Public
 
