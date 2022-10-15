@@ -1,0 +1,8 @@
+<Project Sdk="CitizenFX.Sdk.Client/0.2.3">
+    <PropertyGroup>
+        <LangVersion>10</LangVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="../Shared/**/*.cs"/>
+    </ItemGroup>
+</Project>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9599ada2-05e4-47d1-b405-4d6647958c64" name="Changes" comment="disabled hint for class instance" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/ClientMain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/ClientMain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/ClientMain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/ClientMain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/ClientMain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/Modules/EventProxy/EventProxy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/Modules/EventProxy/EventProxy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/Modules/EventProxy/EventProxy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/Modules/EventProxy/EventProxy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/Modules/KeyManager/KeyManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/Modules/KeyManager/KeyManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/Modules/KeyManager/KeyManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/Modules/KeyManager/KeyManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/Modules/KeyManager/KeyManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/Modules/KeyManager/KeyManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/Modules/KeyManager/KeyManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Client/Modules/KeyManager/KeyManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Server/Modules/Crypto/NumericalProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Server/Modules/Crypto/UnicodeProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Server/Modules/Crypto/UnicodeProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Server/Modules/EventProxy/EventInterpreter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Server/Modules/EventProxy/EventInterpreter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Server/Modules/EventProxy/EventInterpreter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Server/Modules/KeyManager/KeyManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Server/Modules/KeyManager/KeyManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Server/Modules/KeyManager/KeyManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Server/Modules/KeyManager/PlayerKeyManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Server/Modules/KeyManager/PlayerKeyManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Server/ServerMain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Server/ServerMain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Shared/Utilities.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Shared/Utilities.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Shared/Utilities.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Shared/Utilities.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/Shared/Utilities.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2GArPNVuwSPHd3YBd3GOLCvxUS5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9599ada2-05e4-47d1-b405-4d6647958c64" name="Changes" comment="" />
+      <created>1665842206003</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665842206003</updated>
+      <workItem from="1665842213933" duration="17088000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial Commit">
+      <created>1665847992613</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665847992613</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Remove Old fxmanifest template">
+      <created>1665848147811</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665848147811</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update Hash function to loop keys">
+      <created>1665848371656</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665848371656</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add client key manager">
+      <created>1665848543077</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665848543077</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Setup Client Key Manager">
+      <created>1665849740689</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665849740689</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Disable Idea Inspections">
+      <created>1665849829718</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1665849829718</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Disable Inspection">
+      <created>1665849855036</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1665849855036</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fix redundancies">
+      <created>1665849986777</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1665849986777</updated>
+    </task>
+    <task id="LOCAL-00009" summary="cleaned up directives">
+      <created>1665851337757</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1665851337757</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Proj. Updates for KeyManagers">
+      <created>1665851392499</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1665851392499</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Update Tick Frequency">
+      <created>1665851497760</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1665851497760</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Setup Client Proxy">
+      <created>1665852188912</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1665852188912</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Event Interpreter added serverside">
+      <created>1665852439018</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1665852439018</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added numerical utils">
+      <created>1665852466009</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1665852466009</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Organize namespaces">
+      <created>1665852482959</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1665852482959</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add Directory filters">
+      <created>1665852499854</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1665852499854</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Fix whitespace + naming">
+      <created>1665852679279</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1665852679279</updated>
+    </task>
+    <task id="LOCAL-00018" summary="formatting">
+      <created>1665852702231</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1665852702231</updated>
+    </task>
+    <task id="LOCAL-00019" summary="whitespace">
+      <created>1665852713373</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1665852713373</updated>
+    </task>
+    <task id="LOCAL-00020" summary="tidy references">
+      <created>1665852735520</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1665852735520</updated>
+    </task>
+    <task id="LOCAL-00021" summary="inline loop">
+      <created>1665852744304</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1665852744304</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fix class structure">
+      <created>1665852757972</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1665852757972</updated>
+    </task>
+    <task id="LOCAL-00023" summary="formatting">
+      <created>1665852767846</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1665852767846</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Update Utils">
+      <created>1665856988486</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1665856988486</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Fix Whitespace">
+      <created>1665856996150</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1665856996150</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Fixed switch case priority, removed debug text">
+      <created>1665862798788</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1665862798788</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Debug text">
+      <created>1665862814823</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1665862814823</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Removed debug features">
+      <created>1665862903834</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1665862903834</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Moved to enumerable generic">
+      <created>1665863080816</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1665863080816</updated>
+    </task>
+    <task id="LOCAL-00030" summary="disabled hint for class instance">
+      <created>1665863119399</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1665863119399</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Setup Client Key Manager" />
+    <MESSAGE value="Disable Idea Inspections" />
+    <MESSAGE value="Disable Inspection" />
+    <MESSAGE value="Fix redundancies" />
+    <MESSAGE value="cleaned up directives" />
+    <MESSAGE value="Proj. Updates for KeyManagers" />
+    <MESSAGE value="Update Tick Frequency" />
+    <MESSAGE value="Setup Client Proxy" />
+    <MESSAGE value="Event Interpreter added serverside" />
+    <MESSAGE value="Added numerical utils" />
+    <MESSAGE value="Organize namespaces" />
+    <MESSAGE value="Add Directory filters" />
+    <MESSAGE value="Fix whitespace + naming" />
+    <MESSAGE value="whitespace" />
+    <MESSAGE value="tidy references" />
+    <MESSAGE value="inline loop" />
+    <MESSAGE value="fix class structure" />
+    <MESSAGE value="formatting" />
+    <MESSAGE value="Update Utils" />
+    <MESSAGE value="Fix Whitespace" />
+    <MESSAGE value="Fixed switch case priority, removed debug text" />
+    <MESSAGE value="Debug text" />
+    <MESSAGE value="Removed debug features" />
+    <MESSAGE value="Moved to enumerable generic" />
+    <MESSAGE value="disabled hint for class instance" />
+    <option name="LAST_COMMIT_MESSAGE" value="disabled hint for class instance" />
+  </component>
+</project>
