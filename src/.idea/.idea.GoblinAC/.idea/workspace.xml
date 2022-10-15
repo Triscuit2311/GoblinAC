@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9599ada2-05e4-47d1-b405-4d6647958c64" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GoblinAC/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoblinAC/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GoblinAC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoblinAC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Modules/EventProxy/EventProxy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Modules/EventProxy/EventProxy.cs" afterDir="false" />
-    </list>
+    <list default="true" id="9599ada2-05e4-47d1-b405-4d6647958c64" name="Changes" comment="remove test command" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/src/Client/ClientMain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/src/Client/Modules/EventProxy/EventProxy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/src/Client/Modules/EventProxy/EventProxy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/src/Client/Modules/EventProxy/EventProxy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/src/Server/Modules/KeyManager/KeyManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dante/RiderProjects/GoblinAC/src/Server/ServerMain.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -42,7 +46,7 @@
       <updated>1665842206003</updated>
       <workItem from="1665842213933" duration="17088000" />
       <workItem from="1665864470044" duration="281000" />
-      <workItem from="1665864780175" duration="65000" />
+      <workItem from="1665864780175" duration="440000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1665847992613</created>
@@ -254,7 +258,42 @@
       <option name="project" value="LOCAL" />
       <updated>1665863119399</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Cleanup comments">
+      <created>1665864860456</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1665864860456</updated>
+    </task>
+    <task id="LOCAL-00032" summary="update vcs for idea">
+      <created>1665864891798</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1665864891798</updated>
+    </task>
+    <task id="LOCAL-00033" summary="disable readonly help for eventQueue">
+      <created>1665865123187</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1665865123188</updated>
+    </task>
+    <task id="LOCAL-00034" summary="cleanup">
+      <created>1665865207069</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1665865207069</updated>
+    </task>
+    <task id="LOCAL-00035" summary="remove test command">
+      <created>1665865215473</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1665865215473</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,11 +317,6 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Setup Client Key Manager" />
-    <MESSAGE value="Disable Idea Inspections" />
-    <MESSAGE value="Disable Inspection" />
-    <MESSAGE value="Fix redundancies" />
-    <MESSAGE value="cleaned up directives" />
     <MESSAGE value="Proj. Updates for KeyManagers" />
     <MESSAGE value="Update Tick Frequency" />
     <MESSAGE value="Setup Client Proxy" />
@@ -303,6 +337,11 @@
     <MESSAGE value="Removed debug features" />
     <MESSAGE value="Moved to enumerable generic" />
     <MESSAGE value="disabled hint for class instance" />
-    <option name="LAST_COMMIT_MESSAGE" value="disabled hint for class instance" />
+    <MESSAGE value="Cleanup comments" />
+    <MESSAGE value="update vcs for idea" />
+    <MESSAGE value="disable readonly help for eventQueue" />
+    <MESSAGE value="cleanup" />
+    <MESSAGE value="remove test command" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove test command" />
   </component>
 </project>
