@@ -10,6 +10,7 @@ using GoblinAC.Server.Modules.Crypto;
 
 namespace GoblinAC.Server.Modules;
 
+// ReSharper disable once ClassNeverInstantiated.Global
 public class KeyManager : BaseScript
 {
     private const int ReissueInterval = 30_000;
