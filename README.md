@@ -1,6 +1,8 @@
 *GoblinAC is still under development and is not in a finished state, it is released for free with no warranty or liability!*
 Licenced under the [MIT License](LICENSE)
 
+![GoblinAC](https://socialify.git.ci/Triscuit2311/GoblinAC/image?description=1&font=Source%20Code%20Pro&language=1&owner=1&pattern=Brick%20Wall&stargazers=1&theme=Dark)
+
 # Goblin Anti-Cheat Public
 
 Goblin AC Public is a C# Anti-Cheat for FiveM servers. Goblin AC's primary focus is stopping event trigger exploitation. While most anti-cheats rely on topical methods to stop cheaters from triggering events, Goblin re-structures the way that your scripts communicate across the client-server threshold. Goblin AC provides a platform to proxy all event triggers through a more secure channel. This means your server scripts will only accept events triggered by the server, completely stopping the common `TriggerServerEvent(...)` exploitation.
