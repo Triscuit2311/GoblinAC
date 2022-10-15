@@ -1,8 +1,8 @@
+*GoblinAC is still under development and is not in a finished state, it is released for free with no warranty or liability!*
 
+# Goblin Anti-Cheat Public
 
-# Goblin Anti-Cheat
-
-Goblin AC is a C# Anti-Cheat for FiveM servers. Goblin AC's primary focus is stopping event trigger exploitation. While most anti-cheats rely on topical methods to stop cheaters from triggering events, Goblin re-structures the way that your scripts communicate across the client-server threshold. Goblin AC provides a platform to proxy all event triggers through a more secure channel. This means your server scripts will only accept events triggered by the server, completely stopping the common `TriggerServerEvent(...)` exploitation.
+Goblin AC Public is a C# Anti-Cheat for FiveM servers. Goblin AC's primary focus is stopping event trigger exploitation. While most anti-cheats rely on topical methods to stop cheaters from triggering events, Goblin re-structures the way that your scripts communicate across the client-server threshold. Goblin AC provides a platform to proxy all event triggers through a more secure channel. This means your server scripts will only accept events triggered by the server, completely stopping the common `TriggerServerEvent(...)` exploitation.
 
 ## **How does it work?**
 
@@ -30,5 +30,9 @@ Attempting to re-trigger events:
 - Change the events on your server-sided scripts to only accept server-sided triggers. See [example script server.lua](/examples/TestResource/server/server.lua).
 - Send your client-sided events to EventProxy() instead of to the server. [example script client.lua](/examples/TestResource/client/client.lua).
 
+### **Couldn't this be bypassed?**
+**Yes.** A somewhat experienced individual could write a system to work around the features of GoblinAC. And while there are some features planned that will make this significantly more difficult (i.e. dynamically loading your lua scripts so they aren't searchable); that's not our primary target.
+Those inividuals willing and able to work around GoblinAC are far from the average cheat-abuser. GoblinAC is still highly effective against the majority of cheaters using tools to trigger events.
 
-
+### **Will you install this for me?**
+**No.** I offer a custom Anti-Cheat development service for private servers with a much broader spectrum of features, including those seen in Goblin AC public. I can offer some support for issues via github as well.
