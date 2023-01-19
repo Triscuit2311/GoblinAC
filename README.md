@@ -37,5 +37,5 @@ Attempting to re-trigger events:
 **Yes.** A somewhat experienced individual could write a system to work around the features of GoblinAC. And while there are some features planned that will make this significantly more difficult (i.e. dynamically loading your lua scripts so they aren't searchable); that's not our primary target.
 Those inividuals willing and able to work around GoblinAC are far from the average cheat-abuser. GoblinAC is still highly effective against the majority of cheaters using tools to trigger events.
 
-### **Will you install this for me?**
-**No.** I offer a custom Anti-Cheat development service for private servers with a much broader spectrum of features, including those seen in Goblin AC public. I can offer some support for issues via github.
+### **Why?**
+As FiveM servers implement more security in the form of server-sided checks, hackers are getting more creative. I have been working on custom Anti-Cheat development services for private servers with a much broader spectrum of features, but this specific feature (anti-trigger spam) find it way into every single one. I figured I would release this to the community for free, learn from it and make your own if you're so inclined!
