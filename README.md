@@ -38,4 +38,4 @@ Attempting to re-trigger events:
 Those inividuals willing and able to work around GoblinAC are far from the average cheat-abuser. GoblinAC is still highly effective against the majority of cheaters using tools to trigger events.
 
 ### **Why?**
-As FiveM servers implement more security in the form of server-sided checks, hackers are getting more creative. I have been working on custom Anti-Cheat development services for private servers with a much broader spectrum of features, but this specific feature (anti-trigger spam) found it way into every single one. I figured I would release this to the community for free, learn from it and make your own if you're so inclined!
+As FiveM servers implement more security in the form of server-sided checks, hackers are getting more creative. I have been working on custom Anti-Cheat development services for private servers with a much broader spectrum of features, but this specific feature (anti-trigger spam) found it's way into every single one. I figured I would release this to the community for free, learn from it and make your own if you're so inclined!
